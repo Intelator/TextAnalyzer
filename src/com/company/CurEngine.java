@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by User on 06.10.2015.
@@ -19,8 +20,30 @@ public class CurEngine implements Engine {
     }
 
     @Override
-    public void disassembleText (String inputText) {}
+    public void disassembleText (String inputText) {
+        changeText();
+        Scanner input = new Scanner(getIncomingText());
+        while (input.hasNext()) {
+            text.add(input.next());
+        }
+    }
 
     @Override
-    public void analyzeText (ArrayList<String> text) {}
+    public void analyzeText (ArrayList<String> text) {
+        //TODO realize
+    }
+
+    public void analyzeText (ArrayList<String> text, String word) {
+        //TODO realize
+    }
+
+    private void changeText() {
+        setIncomingText(getIncomingText().toLowerCase());
+        setIncomingText(getIncomingText().replace('.', ' '));
+        setIncomingText(getIncomingText().replace(',', ' '));
+        setIncomingText(getIncomingText().replace(':', ' '));
+        setIncomingText(getIncomingText().replace(';', ' '));
+        setIncomingText(getIncomingText().replace('?', ' '));
+        setIncomingText(getIncomingText().replace('!', ' '));
+    }
 }
