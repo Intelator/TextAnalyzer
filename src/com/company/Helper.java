@@ -15,4 +15,29 @@ public class Helper {
         System.out.println("help - to see legend");
         System.out.println("exit - to terminate application");
     }
+
+    public static void process(String choice) {
+        switch (choice) {
+            case "type": System.out.println("type");
+                break;
+            case "file": System.out.println("file");
+                break;
+            case "count_all": System.out.println("all");
+                break;
+            case "count_word": System.out.println("word");
+                break;
+            case "to_screen": System.out.println("screen");
+                break;
+            case "to_file": System.out.println("to_file");
+                break;
+            case "help": help();
+                break;
+            case "exit": Main.setState(State.EXIT);
+                break;
+            default: {
+                System.out.println("Wrong choice, try again");
+                help();
+            }
+        }
+    }
 }
