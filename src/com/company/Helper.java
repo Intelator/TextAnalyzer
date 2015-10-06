@@ -1,9 +1,12 @@
 package com.company;
 
+import java.util.Scanner;
+
 /**
  * Created by User on 06.10.2015.
  */
 public class Helper {
+
     public static void help() {
         System.out.println("Keywords:");
         System.out.println("type - to input text from keyboard");
@@ -18,21 +21,21 @@ public class Helper {
 
     public static void process(String choice) {
         switch (choice) {
-            case "type": System.out.println("type");
+            case "type": InputCases.typeCase();
                 break;
-            case "file": System.out.println("file");
+            case "file": InputCases.fileCase();
                 break;
-            case "count_all": System.out.println("all");
+            case "count_all": InputCases.countAllCase();
                 break;
-            case "count_word": System.out.println("word");
+            case "count_word": InputCases.countWordCase();
                 break;
-            case "to_screen": System.out.println("screen");
+            case "to_screen": InputCases.toScreenCase();
                 break;
-            case "to_file": System.out.println("to_file");
+            case "to_file": InputCases.toFileCase();
                 break;
-            case "help": help();
+            case "help": InputCases.helpCase();
                 break;
-            case "exit": Main.setState(State.EXIT);
+            case "exit": InputCases.exitCase();
                 break;
             default: {
                 System.out.println("Wrong choice, try again");
@@ -40,4 +43,10 @@ public class Helper {
             }
         }
     }
+
+    public static String scan () {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
 }

@@ -9,6 +9,6 @@ public interface Engine {
     ArrayList<ArrayList<String>> analizedText = new ArrayList<ArrayList<String>>();
     ArrayList<String> text = new ArrayList<String>();
 
-    void dissasembleText (String inputText);
+    void disassembleText (String inputText);
     void analyzeText (ArrayList<String> text);
 }
