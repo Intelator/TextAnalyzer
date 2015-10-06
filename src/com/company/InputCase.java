@@ -34,6 +34,7 @@ public class InputCase {
         Main.setState(State.PROCESS);
         System.out.println("Type word for search:");
         String word = Helper.scan();
+        word = word.toLowerCase();
         Main.engine.analyzeText(Main.engine.text, word);
     }
 
