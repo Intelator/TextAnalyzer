@@ -21,21 +21,21 @@ public class Helper {
 
     public static void process(String choice) {
         switch (choice) {
-            case "type": InputCases.typeCase();
+            case "type": InputCase.typeCase();
                 break;
-            case "file": InputCases.fileCase();
+            case "file": InputCase.fileCase();
                 break;
-            case "count_all": InputCases.countAllCase();
+            case "count_all": InputCase.countAllCase();
                 break;
-            case "count_word": InputCases.countWordCase();
+            case "count_word": InputCase.countWordCase();
                 break;
-            case "to_screen": InputCases.toScreenCase();
+            case "to_screen": InputCase.toScreenCase();
                 break;
-            case "to_file": InputCases.toFileCase();
+            case "to_file": InputCase.toFileCase();
                 break;
-            case "help": InputCases.helpCase();
+            case "help": InputCase.helpCase();
                 break;
-            case "exit": InputCases.exitCase();
+            case "exit": InputCase.exitCase();
                 break;
             default: {
                 System.out.println("Wrong choice, try again");
