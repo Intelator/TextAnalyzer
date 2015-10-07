@@ -26,7 +26,7 @@ public class Main {
 
         while (getState() != State.EXIT) {
             input = scanner.next();
-            Helper.process(input);
+            Helper.process(input, engine);
         }
     }
 }

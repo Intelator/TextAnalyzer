@@ -19,23 +19,23 @@ public class Helper {
         System.out.println("exit - to terminate application");
     }
 
-    public static void process(String choice) {
+    public static void process(String choice, CurEngine engine) {
         switch (choice) {
-            case "type": InputCase.typeCase();
+            case "type": InputCase.typeCase(engine);
                 break;
-            case "file": InputCase.fileCase();
+            case "file": InputCase.fileCase(engine);
                 break;
-            case "count_all": InputCase.countAllCase();
+            case "count_all": InputCase.countAllCase(engine);
                 break;
-            case "count_word": InputCase.countWordCase();
+            case "count_word": InputCase.countWordCase(engine);
                 break;
-            case "to_screen": InputCase.toScreenCase();
+            case "to_screen": InputCase.toScreenCase(engine);
                 break;
-            case "to_file": InputCase.toFileCase();
+            case "to_file": InputCase.toFileCase(engine);
                 break;
-            case "help": InputCase.helpCase();
+            case "help": InputCase.helpCase(engine);
                 break;
-            case "exit": InputCase.exitCase();
+            case "exit": InputCase.exitCase(engine);
                 break;
             default: {
                 System.out.println("Wrong choice, try again");

@@ -1,15 +1,35 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.HashMap;
 
 /**
  * Created by User on 06.10.2015.
  */
 public class CurEngine implements Engine {
-    ArrayList<ArrayList<String>> analizedText = new ArrayList<ArrayList<String>>();
+    Map<String, Integer> analizedText = new HashMap<String, Integer>();
     ArrayList<String> text = new ArrayList<String>();
+    private int quantiyOfWord = 0;
     private String incomingText;
+    private String wordForSearch;
+
+    public void setQuantiyOfWord(int quantity) {
+        quantiyOfWord = quantity;
+    }
+
+    public int getQuantiyOfWord() {
+        return quantiyOfWord;
+    }
+    
+    public void setWordForSearch (String text) {
+        wordForSearch = text;
+    }
+
+    public String getWordForSearch() {
+        return wordForSearch;
+    }
 
     public void setIncomingText (String text) {
         incomingText = text;
@@ -30,11 +50,24 @@ public class CurEngine implements Engine {
 
     @Override
     public void analyzeText (ArrayList<String> text) {
-        //TODO realize
+        for (String word: text) {
+            if (analizedText.containsKey(word))
+                {
+                    int i = analizedText.get(word);
+                    analizedText.put(word, ++i);
+                }
+            else
+                {
+                    analizedText.put(word, 1);
+                }
+        }
+        System.out.println("Analysis of text finished");
     }
 
     public void analyzeText (ArrayList<String> text, String word) {
-        //TODO realize
+        analyzeText(text);
+        setQuantiyOfWord(analizedText.get(word));
+        System.out.println("Search of word finished");
     }
 
     private void changeText() {

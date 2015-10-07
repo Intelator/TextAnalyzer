@@ -6,7 +6,8 @@ package com.company;
 public enum State {
     INITIALISATION,
     INPUT,
-    PROCESS,
+    PROCESS_TEXT,
+    PROCESS_WORD,
     OUTPUT,
     EXIT
 }
