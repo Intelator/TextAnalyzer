@@ -21,9 +21,9 @@ public class Helper {
 
     public static void process(String choice, CurEngine engine) {
         switch (choice) {
-            case "type": InputCase.typeCase(engine);
+            case "type": InputCase.typeCase();
                 break;
-            case "file": InputCase.fileCase(engine);
+            case "file": InputCase.fileCase();
                 break;
             case "count_all": InputCase.countAllCase(engine);
                 break;
@@ -33,9 +33,9 @@ public class Helper {
                 break;
             case "to_file": InputCase.toFileCase(engine);
                 break;
-            case "help": InputCase.helpCase(engine);
+            case "help": InputCase.helpCase();
                 break;
-            case "exit": InputCase.exitCase(engine);
+            case "exit": InputCase.exitCase();
                 break;
             default: {
                 System.out.println("Wrong choice, try again");

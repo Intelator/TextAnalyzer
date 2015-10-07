@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by User on 06.10.2015.
  */
 public class InputCase {
-    static void typeCase (CurEngine engine) {
+    static void typeCase () {
         Main.setState(State.INPUT);
         System.out.println("Type your text here:");
         Main.engine.setIncomingText(Helper.scan());
@@ -18,7 +18,7 @@ public class InputCase {
         System.out.println("Successful");
     }
 
-    static void fileCase(CurEngine engine) {
+    static void fileCase() {
         Main.setState(State.INPUT);
 
         String path = getPathToFile();
@@ -66,11 +66,11 @@ public class InputCase {
         System.out.println("to_file");
     }
 
-    static void helpCase(CurEngine engine) {
+    static void helpCase() {
         Helper.help();
     }
 
-    static void exitCase(CurEngine engine) {
+    static void exitCase() {
         Main.setState(State.EXIT);
     }
 
