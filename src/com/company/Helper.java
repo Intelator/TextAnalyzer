@@ -9,6 +9,7 @@ public class Helper {
 
     public static void help() {
         System.out.println("Keywords:");
+        System.out.println("long_file - to create long text file");
         System.out.println("type - to input text from keyboard");
         System.out.println("file - to input text from file");
         System.out.println("count_all - to count entry of each word");
@@ -36,6 +37,8 @@ public class Helper {
             case "help": InputCase.helpCase();
                 break;
             case "exit": InputCase.exitCase();
+                break;
+            case "long_file": InputCase.longFile();
                 break;
             default: {
                 System.out.println("Wrong choice, try again");
