@@ -106,11 +106,12 @@ public class InputCase {
             System.out.println(ex.getMessage());
         }
 
-        System.out.println("Saved");
+        System.out.println("Saved in file " + fileName);
     }
 
     static void createFile(String fileName) {
         File file = new File(fileName);
+
         if (file.exists())
             {
                 file.delete();
