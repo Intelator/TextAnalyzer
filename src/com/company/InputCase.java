@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,7 +54,7 @@ public class InputCase {
     static void toFileCase(CurEngine engine) {
         Main.setState(State.OUTPUT);
 
-        System.out.println("Type path to your directory");
+        System.out.println("Type path to your directory:");
         String path = getPathToFile();
 
         saveFile(path, engine);
@@ -78,7 +76,7 @@ public class InputCase {
     static void readFile(String path) {
         try(BufferedReader br = new BufferedReader(new FileReader(path)))
         {
-            String readText = "..";
+            String readText = ".";
             String line = null;
             while ((line = br.readLine()) != null){
                 readText += line;
@@ -93,7 +91,50 @@ public class InputCase {
     }
 
     static void saveFile(String path, CurEngine engine) {
-        //TODO realize
+        String fileName = path + "\\results.txt";
+        createFile(fileName);
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName)))
+        {
+            for (String word: engine.analizedText.keySet()) {
+                String output = "Word " + word + " found " + engine.analizedText.get(word) + " times.";
+                bw.newLine();
+                bw.write(output, 0, output.length());
+            }
+        }
+        catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        System.out.println("Saved");
+    }
+
+    static void createFile(String fileName) {
+        File file = new File(fileName);
+        if (file.exists())
+            {
+                file.delete();
+                try
+                {
+                    file.createNewFile();
+                }
+                catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        else
+            {
+                try
+                {
+                    file.createNewFile();
+                }
+                catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+
+
+
     }
 
 }
