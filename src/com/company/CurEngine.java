@@ -11,18 +11,10 @@ import java.util.HashMap;
 public class CurEngine implements Engine {
     Map<String, Integer> analizedText = new HashMap<String, Integer>();
     ArrayList<String> text = new ArrayList<String>();
-    private int quantiyOfWord = 0;
+
     private String incomingText;
     private String wordForSearch;
 
-    public void setQuantiyOfWord(int quantity) {
-        quantiyOfWord = quantity;
-    }
-
-    public int getQuantiyOfWord() {
-        return quantiyOfWord;
-    }
-    
     public void setWordForSearch (String text) {
         wordForSearch = text;
     }
@@ -50,6 +42,7 @@ public class CurEngine implements Engine {
 
     @Override
     public void analyzeText (ArrayList<String> text) {
+        analizedText.clear();
         for (String word: text) {
             if (analizedText.containsKey(word))
                 {
@@ -65,8 +58,14 @@ public class CurEngine implements Engine {
     }
 
     public void analyzeText (ArrayList<String> text, String word) {
-        analyzeText(text);
-        setQuantiyOfWord(analizedText.get(word));
+        int i = 0;
+        analizedText.clear();
+
+        for (String curWord: text) {
+            if (curWord.equals(word)) i++;
+        }
+
+        analizedText.put(word, i);
         System.out.println("Search of word finished");
     }
 

@@ -21,7 +21,9 @@ public class InputCase {
     static void fileCase() {
         Main.setState(State.INPUT);
 
+        System.out.println("Type path to your file:");
         String path = getPathToFile();
+
         readFile(path);
         Main.engine.disassembleText(Main.engine.getIncomingText());
     }
@@ -35,7 +37,6 @@ public class InputCase {
 
     static void countWordCase(CurEngine engine) {
         Main.setState(State.PROCESS_WORD);
-        engine.setQuantiyOfWord(0);
         System.out.println("Type word for search:");
         String word = Helper.scan();
         word = word.toLowerCase();
@@ -44,26 +45,21 @@ public class InputCase {
     }
 
     static void toScreenCase(CurEngine engine) {
-        State prevState = Main.getState();
+
         Main.setState(State.OUTPUT);
-        if (prevState == State.PROCESS_TEXT)
+        for (String word: engine.analizedText.keySet())
             {
-                System.out.println("Your text has those words:");
-                for (String word: engine.analizedText.keySet())
-                {
-                    System.out.println("Word " + word + " found " + engine.analizedText.get(word) + " times.");
-                }
-            }
-        else if (prevState == State.PROCESS_WORD)
-            {
-                System.out.println("Word " + engine.getWordForSearch() + " found " + engine.getQuantiyOfWord() + " times");
+                System.out.println("Word " + word + " found " + engine.analizedText.get(word) + " times.");
             }
     }
 
     static void toFileCase(CurEngine engine) {
         Main.setState(State.OUTPUT);
-        //TODO realize
-        System.out.println("to_file");
+
+        System.out.println("Type path to your directory");
+        String path = getPathToFile();
+
+        saveFile(path, engine);
     }
 
     static void helpCase() {
@@ -75,7 +71,6 @@ public class InputCase {
     }
 
     static String getPathToFile() {
-        System.out.println("Type path to your file:");
         String path = Helper.scan();
         return path;
     }
@@ -97,10 +92,8 @@ public class InputCase {
         }
     }
 
-    /*
-    static void output (Map text, int quantityOfWords) {
-        Main.setState(State.OUTPUT);
-
+    static void saveFile(String path, CurEngine engine) {
+        //TODO realize
     }
-    */
+
 }
