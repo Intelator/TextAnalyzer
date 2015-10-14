@@ -9,6 +9,8 @@ import java.util.Random;
  * Created by User on 06.10.2015.
  */
 public class InputCase {
+    final static String END_OF_TEXT = "_END_OF_TEXT";
+
     static void typeCase () {
         Main.setState(State.INPUT);
         System.out.println("Type your text here:");
@@ -79,24 +81,28 @@ public class InputCase {
         System.out.println("Insert length of string in text");
         Integer lengthOfString = new Integer(Helper.scan());
 
-        String fileName = path + "\\results_long_of_" + + lengthOfText + "_characters.txt";
+        String fileName = path + "\\results_long_of_" + lengthOfText + "_characters.txt";
         createFile(fileName);
 
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName)))
         {
             char[] text = new char[lengthOfText];
+            int j = 0;
             for (int i = 0; i < lengthOfText; i++) {
-                text[i] = getRandomChar();
-            }
-
-            for (int i = 0; i < lengthOfText; i++) {
-                bw.write(text, i, 1);
-                if ((i != 0) && (i % lengthOfString == 0)) {
-                    bw.newLine();
+                if (i < (lengthOfText-END_OF_TEXT.length())) {
+                    text[i] = getRandomChar();
+                } else {
+                    text[i] = END_OF_TEXT.charAt(j);
+                    j++;
                 }
             }
 
-            //bw.write(text, 0, lengthOfText);
+            for (int i = 0; i < lengthOfText; i++) {
+                if ((i != 0) && (i % lengthOfString == 0)) {
+                    bw.newLine();
+                }
+                bw.write(text, i, 1);
+            }
         }
         catch (IOException ex) {
             System.out.println(ex.getMessage());
